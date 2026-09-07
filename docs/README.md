@@ -126,7 +126,7 @@ Membros na lista branca são isentos da proteção anti-raid.
 - Senhas de sessão
 - Validação de entrada
 
-## 📈 Monitoramento
+## 📊 Monitoramento
 
 O bot rastreia:
 - Raids detectados
