@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Anti-Raid Bot - Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">🛡️ Anti-Raid Bot</div>
+            <div id="userInfo" class="nav-user"></div>
+        </nav>
+
+        <main class="main">
+            <div id="loginSection" class="login-section hidden">
+                <div class="login-card">
+                    <h1>Bem-vindo ao Anti-Raid Bot</h1>
+                    <p>Gerencie a proteção do seu servidor Discord</p>
+                    <a href="/auth/discord" class="btn-discord">Entrar com Discord</a>
+                </div>
+            </div>
+
+            <div id="dashboardSection" class="dashboard hidden">
+                <div class="sidebar">
+                    <div class="guilds-list" id="guildsList"></div>
+                </div>
+
+                <div class="content">
+                    <div id="welcomePage" class="page">
+                        <h2>Selecione um servidor</h2>
+                        <p>Clique em um servidor na esquerda para gerenciar suas configurações</p>
+                    </div>
+
+                    <div id="guildPage" class="page hidden">
+                        <div class="guild-header">
+                            <img id="guildIcon" class="guild-icon" alt="Guild Icon">
+                            <h2 id="guildName"></h2>
+                        </div>
+
+                        <section class="card">
+                            <h3>📊 Estatísticas</h3>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <div class="stat-value" id="raidDetected">0</div>
+                                    <div class="stat-label">Raids Detectados</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value" id="membersBanned">0</div>
+                                    <div class="stat-label">Membros Banidos</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value" id="membersKicked">0</div>
+                                    <div class="stat-label">Membros Expulsos</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="card">
+                            <h3>⚙️ Configurações</h3>
+                            <form id="settingsForm" class="settings-form">
+                                <div class="form-group">
+                                    <label>Limiar de Raid (membros)</label>
+                                    <input type="number" id="raidThreshold" min="1" max="100" value="5">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Janela de Tempo (segundos)</label>
+                                    <input type="number" id="timeWindow" min="5" max="300" value="10">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Ação</label>
+                                    <select id="action">
+                                        <option value="ban">Banir</option>
+                                        <option value="kick">Expulsar</option>
+                                        <option value="role">Adicionar Role</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn-primary">Salvar Configurações</button>
+                            </form>
+                        </section>
+
+                        <section class="card">
+                            <h3>📋 Logs Recentes</h3>
+                            <div class="logs-list" id="logsList"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
